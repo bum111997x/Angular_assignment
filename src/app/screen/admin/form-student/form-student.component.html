@@ -1,0 +1,72 @@
+<h3>{{title}}</h3>
+<form action="" [formGroup]="formStudent" (ngSubmit)="submitForm()">
+  <div class="form-group" >
+    <label for="">Họ tên</label>
+    <input type="text" class="form-control" formControlName="fullname">
+    <div *ngIf="formStudent.controls['fullname'].errors &&
+    (formStudent.controls['fullname'].touched ||
+    formStudent.controls['fullname'].dirty)">
+      <span class="text-danger" *ngIf="formStudent.controls['fullname'].hasError('required')">*Hãy nhập Họ tên</span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">Email</label>
+    <input type="text" class="form-control" formControlName="email">
+    <div *ngIf="formStudent.controls['email'].errors &&
+    (formStudent.controls['email'].touched ||
+    formStudent.controls['email'].dirty)">
+      <span class="text-danger" *ngIf="formStudent.controls['email'].hasError('required')">*Hãy nhập email</span>
+      <span class="text-danger" *ngIf="formStudent.controls['email'].hasError('email')">*Hãy nhập đúng định dạng email</span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">Tài khoản</label>
+    <input type="text" class="form-control" formControlName="username">
+    <div *ngIf="formStudent.controls['username'].errors &&
+    (formStudent.controls['username'].touched ||
+    formStudent.controls['username'].dirty)">
+      <span class="text-danger" *ngIf="formStudent.controls['username'].hasError('required')">*Hãy nhập tài khoản</span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">Password</label>
+    <input type="password" class="form-control" formControlName="password">
+    <div *ngIf="formStudent.controls['password'].errors &&
+    (formStudent.controls['password'].touched ||
+    formStudent.controls['password'].dirty)">
+      <span class="text-danger" *ngIf="formStudent.controls['password'].hasError('required')">*Hãy nhập password</span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">Ngày sinh</label>
+    <input type="date" class="form-control" formControlName="birthday">
+    <div *ngIf="formStudent.controls['birthday'].errors &&
+    (formStudent.controls['birthday'].touched ||
+    formStudent.controls['birthday'].dirty)">
+      <span class="text-danger" *ngIf="formStudent.controls['birthday'].hasError('required')">*Hãy chọn ngày sinh</span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">Giới tính</label>
+    <select class="form-control" formControlName="gender">
+      <option value="true">Nam</option>
+      <option value="false">Nữ</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="">Học phí</label>
+    <input type="number" class="form-control" formControlName="schoolfee">
+    <div *ngIf="formStudent.controls['schoolfee'].errors &&
+    (formStudent.controls['schoolfee'].touched ||
+    formStudent.controls['schoolfee'].dirty)">
+      <span class="text-danger" *ngIf="formStudent.controls['schoolfee'].hasError('required')">*Hãy nhập học phí</span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="">Điểm</label>
+    <input type="number" class="form-control" formControlName="marks">
+  </div>
+  <div class="mt-3 ">
+    <button [disabled]="!formStudent.valid" type="submit" class="btn btn-primary">Lưu</button>
+  </div>
+</form>

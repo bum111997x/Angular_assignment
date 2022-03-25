@@ -1,0 +1,33 @@
+
+<div class="row mb-3">
+  <div class="col-11">
+    <input type="text" class="form-control" [(ngModel)]="keyword" (keyup)="search()" placeholder="Search">
+  </div>
+  <div class="col-1 d-flex justify-content-end">
+    <button class="btn btn-success" [routerLink]="['add']">Add</button>
+  </div>
+</div>
+<table class="table table-bordered">
+  <thead>
+  <tr class="table-dark">
+    <th>Stt</th>
+    <th>Mã môn</th>
+    <th>Tên môn học</th>
+    <th>Logo</th>
+    <th>Chức năng</th>
+  </tr>
+  </thead>
+  <tbody *ngIf="listSubjects.length > 0">
+  <tr *ngFor="let s of listSubjects; index as i">
+    <td>{{i+1}}</td>
+    <td>{{s.Code}}</td>
+    <td>{{s.Name}}</td>
+    <td><img src="https://www.leadershipmartialartsct.com/wp-content/uploads/2017/04/default-image.jpg" style="height: 100px;width: 100px"></td>
+    <td>
+      <button class="btn btn-primary m-2" [routerLink]="['../cau-hoi', s.Code]">Chi tiết</button>
+      <button class="btn btn-warning" [routerLink]="['edit/', s.id]">Update</button>
+      <button class="btn btn-danger m-2" (click)="remove(s.id)">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

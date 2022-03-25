@@ -1,0 +1,40 @@
+<div class="row mb-3">
+  <div class="col-11">
+    <input type="text" class="form-control" [(ngModel)]="keyword" (keyup)="search()" placeholder="Search by username">
+  </div>
+  <div class="col-1 d-flex justify-content-end">
+    <button class="btn btn-success" [routerLink]="['add']">Add</button>
+  </div>
+</div>
+
+<table class="table table-bordered">
+  <thead>
+  <tr  class="table-dark">
+    <th>STT</th>
+    <th>Username</th>
+    <th>Fullname</th>
+    <th>Email</th>
+    <th>Gender</th>
+    <th>Birthday</th>
+    <th>Schoolfee</th>
+    <th>Marks</th>
+    <th>Chức năng</th>
+  </tr>
+  </thead>
+  <tbody *ngIf="listStudent.length > 0">
+  <tr *ngFor="let item of listStudent; index as i">
+    <td>{{i+1}}</td>
+    <td>{{item.username}}</td>
+    <td>{{item.fullname}}</td>
+    <td>{{item.email}}</td>
+    <td>{{item.gender | gender}}</td>
+    <td>{{item.birthday | date: 'd/M/y'}}</td>
+    <td>{{item.schoolfee}}</td>
+    <td>{{item.marks}}</td>
+    <td>
+      <button class="btn btn-warning m-2" [routerLink]="['edit', item.id]">Update</button>
+      <button class="btn btn-danger" (click)="remove(item.id)">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
