@@ -11,22 +11,22 @@ export class StudentService {
   constructor(private http: HttpClient) { }
 
   list(searchKey: string = ""): Observable<any>{
-    return this.http.get<any>(`${environment.student_api}?username_like=${searchKey}`)
+    return this.http.get<any>(`${environment.user_api}?name_like=${searchKey}`)
   }
 
   create(data:any):Observable<any>{
-    return  this.http.post<any>(environment.student_api,data)
+    return  this.http.post<any>(environment.user_api,data)
   }
 
   edit(id:any):Observable<any>{
-    return this.http.get<any>(`${environment.student_api}/${id}`)
+    return this.http.get<any>(`${environment.user_api}/${id}`)
   }
 
-  update(id:any,data:any):Observable<any>{
-    return this.http.put(`${environment.student_api}/${id}`, data)
+  update(data:any):Observable<any>{
+    return this.http.put(`${environment.user_api}/${data.id}`, {...data})
   }
 
   delete(id:any):Observable<any>{
-    return this.http.delete(`${environment.student_api}/${id}`)
+    return this.http.delete(`${environment.user_api}/${id}`)
   }
 }

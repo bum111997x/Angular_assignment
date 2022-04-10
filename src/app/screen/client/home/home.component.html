@@ -1,7 +1,8 @@
 <section class="wrapper">
   <div class="container-fostrap">
     <div>
-      <img src="https://4.bp.blogspot.com/-7OHSFmygfYQ/VtLSb1xe8kI/AAAAAAAABjI/FxaRp5xW2JQ/s320/logo.png" class="fostrap-logo"/>
+      <img src="https://4.bp.blogspot.com/-7OHSFmygfYQ/VtLSb1xe8kI/AAAAAAAABjI/FxaRp5xW2JQ/s320/logo.png"
+           class="fostrap-logo"/>
       <h1 class="heading">
         Danh sách môn học
       </h1>
@@ -11,9 +12,11 @@
         <div class="row">
           <div class="col-xs-12 col-sm-4" *ngFor="let item of listSubject">
             <div class="card">
-              <a class="img-card" href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                <img src="https://bs-uploads.toptal.io/blackfish-uploads/components/blog_post_page/content/cover_image_file/cover_image/880739/retina_800x320_cover-angular-5-tutorial-325403e130ba3b2c367174b73bb7275a.png" />
-              </a>
+              <div>
+                <a class="img-card" [routerLink]="['../quiz/' + item.Code]">
+                  <img [src]="'assets/logos/' +item.Logo"/>
+                </a>
+              </div>
               <div class="card-content">
                 <h4 class="card-title">
                   <p> {{item.Name}}</p>

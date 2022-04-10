@@ -35,7 +35,7 @@ export class FormStudentComponent implements OnInit {
 
   submitForm() {
     if(this.param){
-      this.studentService.update(this.param, this.formStudent.value).subscribe(data => {
+      this.studentService.update(this.formStudent.value).subscribe(data => {
         this.router.navigate(['admin/sinh-vien'])
       })
     }else {

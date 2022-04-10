@@ -67,10 +67,7 @@ import { FinalQuizComponent } from './screen/client/final-quiz/final-quiz.compon
               environment.GOOGLE_CLIENT_ID
             )
           }
-        ],
-        onError: (err) => {
-          console.error(err);
-        }
+        ]
       } as SocialAuthServiceConfig,
     }
   ],
