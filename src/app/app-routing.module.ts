@@ -17,6 +17,7 @@ import {ClientLayoutComponent} from "./layouts/client-layout/client-layout.compo
 import {HomeComponent} from "./screen/client/home/home.component";
 import {QuizComponent} from "./screen/client/quiz/quiz.component";
 import {FinalQuizComponent} from "./screen/client/final-quiz/final-quiz.component";
+import {AuthGuard} from "./helpers/auth.guard";
 
 const routes: Routes = [
   {
@@ -26,6 +27,7 @@ const routes: Routes = [
   {
     path: "admin",
     component: AdminLayoutComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: "",
@@ -86,6 +88,7 @@ const routes: Routes = [
   {
     path: "",
     component: ClientLayoutComponent,
+    canActivate: [AuthGuard],
     children:[
       {
         path: "",

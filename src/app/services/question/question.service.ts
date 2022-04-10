@@ -13,4 +13,9 @@ export class QuestionService {
   list(code:any):Observable<any>{
     return this.http.get<any>(`${environment.question_api}/${code}`)
   }
+
+  create(code:any, data:any): Observable<any>{
+    return this.http.post<any>(`${environment.question_api}/${code}`,{...data})
+  }
+
 }
