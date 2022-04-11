@@ -2,12 +2,12 @@
   "users": [
     {
       "email": "tungntph15959@fpt.edu.vn",
-      "googleid": "100136387512306624855",
+      "googleId": "100136387512306624855",
       "name": "Nguyễn Thanh Tùng",
       "avatar": "https://lh3.googleusercontent.com/a-/AOh14Gjl3WsN8pqLLWDI0tH-k2aDPOU6KXtcml6ckEuR=s96-c",
       "marks": [
         {
-          "subject": "GAME",
+          "subject": "HTCS",
           "score": 1
         }
       ],
@@ -17311,6 +17311,11 @@
         }
       ],
       "id": 25580
+    },
+    {
+      "Text": "",
+      "Answers": [],
+      "id": 25581
     }
   ],
   "HTCS": [
@@ -19497,14 +19502,12 @@
   ],
   "INMA": [
     {
-      "id": 24711,
       "Text": "Trước khi viết một thông điệp marketing cho website của bạn, bạn cần phải:",
-      "Marks": 1,
       "AnswerId": 102534,
       "Answers": [
         {
           "id": 102531,
-          "Text": "Tìm hiểu xem khách hàng lý tưởng của mình bao nhiêu tuổi"
+          "Text": "123"
         },
         {
           "id": 102532,
@@ -19518,7 +19521,8 @@
           "id": 102534,
           "Text": "Tìm hiểu xem khách hàng lý tưởng của mình là ai, đặc điểm của họ là gì"
         }
-      ]
+      ],
+      "id": 24711
     },
     {
       "id": 24712,

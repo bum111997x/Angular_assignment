@@ -18,4 +18,11 @@ export class QuestionService {
     return this.http.post<any>(`${environment.question_api}/${code}`,{...data})
   }
 
+  edit(code:any, idQuestion:any):Observable<any>{
+    return this.http.get<any>(`${environment.question_api}/${code}/${idQuestion}`)
+  }
+
+  update(code:any, idQuestion:any, data: any):Observable<any>{
+    return this.http.put<any>(`${environment.question_api}/${code}/${idQuestion}`, data)
+  }
 }
