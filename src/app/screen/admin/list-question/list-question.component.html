@@ -21,7 +21,7 @@
     <td>{{item.Text}}</td>
     <td>{{item.Marks}}</td>
     <td>
-      <button class="btn btn-warning m-2">Update</button>
+      <button class="btn btn-warning m-2" [routerLink]="['edit/', item.id]">Update</button>
       <button class="btn btn-danger">Delete</button>
     </td>
   </tr>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {QuestionService} from "../../../services/question/question.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {AuthService} from "../../../services/auth/auth.service";
 import {StudentService} from "../../../services/student/student.service";
 
@@ -15,7 +15,9 @@ export class QuizComponent implements OnInit {
   newArr: any =[];
   listTenQuestion: Array<any> = []
   userSelectAns: Array<any> = []
-  constructor(private QuestionService: QuestionService,private activatedRoute: ActivatedRoute, private authService: AuthService, private studentService: StudentService) { }
+  constructor(private QuestionService: QuestionService,private activatedRoute: ActivatedRoute,
+              private authService: AuthService, private studentService: StudentService,
+              private route: Router) { }
 
   ngOnInit(): void {
     this.param = this.activatedRoute.snapshot.paramMap.get('id')
@@ -28,7 +30,7 @@ export class QuizComponent implements OnInit {
       // this.listTenQuestion = this.listQuestion.slice(0,10);
       let i = 0;
       while (i <10){
-        let random = Math.floor(Math.random()*(data[data.length-1].Id - data[0].Id) + data[0].Id)
+        let random = Math.floor(Math.random()*(data[data.length-1].id - data[0].id) + data[0].id)
         if(!this.newArr.includes(random)){
           this.newArr.push(random)
           i++
@@ -37,7 +39,7 @@ export class QuizComponent implements OnInit {
       }
       data.forEach((v:any,i:any)=> {
         for (let j = 0; j < this.newArr.length; j++){
-          if(v.Id == this.newArr[j]){
+          if(v.id == this.newArr[j]){
             this.listTenQuestion.push(v)
           }
         }
@@ -67,7 +69,7 @@ export class QuizComponent implements OnInit {
   submitExcercise() {
     let correctAns = 0;
     this.userSelectAns.forEach((el) => {
-      let q = this.listTenQuestion.find(item => item.Id == el.qId);
+      let q = this.listTenQuestion.find(item => item.id == el.qId);
       if(q.AnswerId == el.aId){
         correctAns++;
       }
@@ -92,7 +94,9 @@ export class QuizComponent implements OnInit {
     }
     this.studentService.update(user)
       .subscribe(u => {
-        console.log(u);
+        localStorage.setItem('login_user', JSON.stringify(u))
+        this.route.navigate(['quiz/' + this.param + '/ket-qua'])
+
       })
   }
 }

@@ -1,1 +1,14 @@
 <p>final-quiz works!</p>
+{{user | json}}
+<div class="container d-flex justify-content-center">
+  <div class="card " style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Kết quả của môn học {{userSubject[0].subject}} </h5>
+      <p class="card-text">Họ tên SV: {{user.name}}</p>
+      <p class="card-text">Điểm: {{userSubject[0].score}}</p>
+      <a href="#" class="card-link">Card link</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>
+</div>
+

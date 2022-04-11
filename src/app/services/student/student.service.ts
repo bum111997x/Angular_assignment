@@ -23,7 +23,7 @@ export class StudentService {
   }
 
   update(data:any):Observable<any>{
-    return this.http.put(`${environment.user_api}/${data.id}`, {...data})
+    return this.http.put(`${environment.user_api}/${data.id}`, data)
   }
 
   delete(id:any):Observable<any>{

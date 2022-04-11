@@ -80,6 +80,10 @@ const routes: Routes = [
           {
             path: ":id/add",
             component: FormQuestionComponent
+          },
+          {
+            path: ":id/edit/:idQuestion",
+            component: FormQuestionComponent
           }
         ]
       }
